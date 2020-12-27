@@ -2,7 +2,17 @@
 import sys
 import numpy as np
 
-data = np.array([float(x) for x in sys.stdin])
+input_file = sys.stdin
+
+argc = len(sys.argv)
+if argc == 1:
+    pass
+elif argc == 2:
+    input_file = open(sys.argv[1], "r")
+else:
+    print(f"usage: {sys.argv[0]} [file]", file=sys.stderr)
+
+data = np.array([float(x) for x in input_file])
 
 print(f"mean:\t{np.mean(data)}")
 print(f"std:\t{np.std(data)}")
