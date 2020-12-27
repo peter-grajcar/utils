@@ -11,6 +11,7 @@ elif argc == 2:
     input_file = open(sys.argv[1], "r")
 else:
     print(f"usage: {sys.argv[0]} [file]", file=sys.stderr)
+    exit(1)
 
 data = np.array([float(x) for x in input_file])
 
