@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+import sys
+import numpy as np
+
+data = np.array([float(x) for x in sys.stdin])
+
+print(f"mean:\t{np.mean(data)}")
+print(f"std:\t{np.std(data)}")
+
