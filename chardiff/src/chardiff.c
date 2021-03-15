@@ -72,12 +72,18 @@ int main(int argc, char *argv[])
             break;
         }
 
-        for (size_t i = 0; i < read_a; ++i) {
-            printf("%c", buffer_a[i]);
+        if (fd_a != stdin) {
+            for (size_t i = 0; i < read_a; ++i) {
+                printf("%c", buffer_a[i]);
+            }
         }
-        for (size_t i = 0; i < read_b; ++i) {
-            printf("%c", buffer_b[i]);
+
+        if (fd_b != stdin) {
+            for (size_t i = 0; i < read_b; ++i) {
+                printf("%c", buffer_b[i]);
+            }
         }
+
         for (size_t i = 0; i < (read_a > read_b ? read_a : read_b); ++i) {
             if (i < read_a && i < read_b) {
                 printf("%c", buffer_a[i] == buffer_b[i] ? ' ' : '!');
@@ -85,6 +91,7 @@ int main(int argc, char *argv[])
                 printf("%c", '!');
             }
         }
+
         printf("\n");
     }
 
