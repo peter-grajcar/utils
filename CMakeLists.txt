@@ -4,4 +4,5 @@ project(utils)
 
 add_subdirectory(chardiff)
 add_subdirectory(srt-merge)
+add_subdirectory(censore)
 
