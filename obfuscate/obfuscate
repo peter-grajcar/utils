@@ -1,0 +1,25 @@
+#!/bin/bash
+
+usage() { echo "usage: $0 [-n NUMER_OF_LINES]" 1>&2; exit 1; }
+
+WIDTH=$(tput cols)
+LINES=1
+while getopts ":n:" opt; do
+    case $opt in
+        n)
+            LINES=$OPTARG
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+printf "\x1b[${LINES}A"
+for j in $(seq $LINES); do
+    for i in $(seq $WIDTH); do
+        printf '\xe2\x96\x88'
+    done
+    printf '\n'
+done
